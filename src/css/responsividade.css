@@ -1,0 +1,186 @@
+@media (max-width: 1440px) {
+    .product-carousel {
+        width: 75%;
+    }
+}
+
+@media (max-width: 1425px) {
+    .product-carousel {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1280px) {
+    .product-carousel {
+        width: 85%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        left: -100vw;
+    }
+
+    .container {
+        height: auto;
+    }
+
+    .product-carousel {
+        width: 78%;
+    }
+/* 
+    .lista-receitas {
+        margin: 0 20px 0;
+        width: 95%;
+        height: auto;
+    } */
+
+    .imagemTr {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 749px) {
+    .product-carousel {
+        width: 70%;
+    }
+
+    .container-carrinho {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .cart-summary {
+        width: 100%;
+    }
+
+    /* .lista-receitas {
+        margin: 0 20px 0;
+        width: 95%;
+        height: auto;
+    } */
+
+    .imagemTr {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 525px) {
+    nav {
+        padding: 8px 5px;
+    }
+
+    .menu {
+        gap: 35px;
+    }
+
+    .mobile {
+        display: initial;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 14px;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .logo h1 {
+        font-weight: 200;
+        color: #fff;
+    }
+
+    .product-carousel {
+        width: 40%;
+    }
+
+    .seta.anterior2 {
+        margin-left: 40px;
+    }
+
+    .seta.proximo2 {
+        margin-right: 40px;
+    }
+
+    .produtos {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 20px;
+    }
+
+    /* .lista-receitas {
+        margin: 0 20px 0;
+        width: 95%;
+        height: auto;
+    } */
+
+    .imagemTr {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 414px) {
+    .menu {
+        gap: 25px;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .paginas {
+        display: none;
+    }
+
+    .product-carousel {
+        width: 60%;
+    }
+
+    .seta.anterior2 {
+        margin-left: 30px;
+    }
+
+    .seta.proximo2 {
+        margin-right: 30px;
+    }
+
+    .produtos {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .produto {
+        width: 155px;
+    }
+
+    .contato {
+        flex-direction: column;
+    }
+/* 
+    .lista-receitas {
+        margin: 0 20px 0;
+        width: 95%;
+        height: auto;
+    } */
+
+    .imagemTr {
+        width: 100%;
+        height: auto;
+    }
+}
