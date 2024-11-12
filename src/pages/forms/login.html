@@ -14,8 +14,9 @@
 <body>
     <header>
         <div class="menu">
-            <a href="../../../index.html" id="logo"><img src="../../img/talheres-cruzam-garfo-e-colher.png" alt="Logo"
-                    style="height:inherit"></a>
+            <a href="../../../api/views/index.ejs" id="logo">
+                <img src="../../img/talheres-cruzam-garfo-e-colher.png" alt="Logo" style="height:inherit">
+            </a>
             <h1>SABORES DO BRASIL</h1>
         </div>
         <div class="links">
@@ -31,16 +32,33 @@
 
     <nav>
         <ul>
-            <li><a href="./src/pages/massas.html">MASSAS</a></li>
-            <li><a href="./src/pages/doces.html">DOCES</a></li>
-            <li><a href="./src/pages/comidas-tipicas.html">COMIDAS TÍPICAS</a></li>
-            <li><a href="./src/pages/salgados.html">SALGADOS</a></li>
+            <li><a href="../categorias/massas.html">MASSAS</a></li>
+            <li><a href="../categorias/doces.html">DOCES</a></li>
+            <li><a href="../categorias/comidas-tipicas.html">COMIDAS TÍPICAS</a></li>
+            <li><a href="../categorias/salgados.html">SALGADOS</a></li>
         </ul>
     </nav>
 
     <main>
         <div class="conteudo">
-            <h1 class="titulo">LOGIN</h1>
+            <h1 class="titulo">LOGIN</h1>       
+            <!-- Formulário de login -->
+            <form action="/validar" method="POST" class="login form-login">
+                <div class="loginSenha">
+                    <label for="login">Usuário:</label>
+                    <input type="text" name="login" id="login" class="form-control" placeholder="Nome" required>
+                    <br><br>
+                    
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required>
+                    <br><br>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+        </div>
+        <div class="cad">
+            <h3 style="color: #252525; text-align: center;">Não possui cadastro?</h3>
+            <button onclick="location.href='cadastro.html'" class="cadastrese">Cadastre-se!</button>
         </div>
     </main>
 
@@ -52,6 +70,8 @@
         <a href="../sobre.html" class="link">Sobre nós</a>
         <p>©2024 Sabores do Brasil. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="login.js"></script>
 </body>
 
 </html>

@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const images = [
-      "https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png",
-      "https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png",
-      "https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png"
+      "../../img/brigadeiro.jpg",
+      "../../img/bolo-de-cenoura.jpg",
+      "../../img/pudim.jpg"
     ];
     const imageSlide = document.getElementById("imageSlide");
     const indicatorsContainer = document.querySelector(".indicadores"); // Mudança do nome da classe
@@ -78,3 +78,21 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCarousel();
     startInterval();
   });
+
+
+
+  
+const images = document.querySelectorAll('.imagens-fileira img');
+
+
+
+
+images.forEach((img) => {
+    img.addEventListener('mouseover', () => {
+        img.classList.add('hover-effect'); 
+    });
+
+    img.addEventListener('mouseout', () => {
+        img.classList.remove('hover-effect'); 
+    });
+});

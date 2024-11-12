@@ -78,3 +78,19 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCarousel();
   startInterval();
 });
+
+
+
+
+const images = document.querySelectorAll('.receita');
+
+// Adiciona eventos de mouseover e mouseout a cada imagem
+images.forEach((img) => {
+    img.addEventListener('mouseover', () => {
+        img.classList.add('hover-effect'); // Adiciona a classe para aumentar
+    });
+
+    img.addEventListener('mouseout', () => {
+        img.classList.remove('hover-effect'); // Remove a classe ao tirar o mouse
+    });
+});

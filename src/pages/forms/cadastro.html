@@ -31,18 +31,30 @@
 
     <nav>
         <ul>
-            <li><a href="./src/pages/massas.html">MASSAS</a></li>
-            <li><a href="./src/pages/doces.html">DOCES</a></li>
-            <li><a href="./src/pages/comidas-tipicas.html">COMIDAS TÍPICAS</a></li>
-            <li><a href="./src/pages/salgados.html">SALGADOS</a></li>
+            <li><a href="../categorias/massas.html">MASSAS</a></li>
+            <li><a href="../categorias/doces.html">DOCES</a></li>
+            <li><a href="../categorias/comidas-tipicas.html">COMIDAS TÍPICAS</a></li>
+            <li><a href="../categorias/salgados.html">SALGADOS</a></li>
         </ul>
     </nav>
 
     <main>
         <div class="conteudo">
             <h1 class="titulo">CADASTRO</h1>
+            <!-- Formulário de cadastro -->
+            <form action="/usuarios" method="POST" class="login">
+                <input type="text" name="usu_apelido" placeholder="Nome" style="font-size: larger;" required>
+                <br><br>
+                <input type="date" name="data_nasc" placeholder="Data Nasc" style="font-size: larger;" class="datanasc">
+                <br><br>
+                <input type="password" name="usu_password" placeholder="Senha" style="font-size: larger;" required>
+                <br><br><br>
+                <button type="submit" class="enviar">Cadastrar</button>
+            </form>
         </div>
     </main>
+
+    <script src="cadastro.js"></script>
 
     <footer>
         <div id="logo-footer">

@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const images = [
-      "https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png",
-      "https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png",
-      "https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png"
+      "../../img/salgados.jpg",
+      "../../img/quibe.jpg",
+      "../../img/calabresa.jpg"
     ];
     const imageSlide = document.getElementById("imageSlide");
     const indicatorsContainer = document.querySelector(".indicadores"); // Mudança do nome da classe

@@ -136,7 +136,7 @@ label {
 .carrossel {
     position: relative;
     max-width: 100%;
-    max-height: 800px;
+    max-height: 900px;
     overflow: hidden;
 }
 
@@ -279,18 +279,24 @@ h1, h2 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 80px;
+    gap: 50px;
 }
 
 .receita {
     display: flex; 
     overflow: hidden;
-    height: 250px;
-    width: 450px;
+    height: 200px;
+    width: 400px;
     border-radius: 20px;
     position: relative; 
     align-items: center;
+    transition: transform 0.3 ease;
 }
+
+.receita.hover-effect{
+    transform: scale(1.1);
+}
+
 
 .imagemReceita {
     height: 100%;
@@ -402,7 +408,7 @@ h1, h2 {
 
 /* FAZER A PARTE RESPONSIVA DISSO DAQUI E DO HEADER*/
 .imagens-fileira img {
-    width: 200px;
+    width: 300px;
     height: auto;
     border: 1px solid #ddd;
 }
@@ -438,4 +444,66 @@ body::-webkit-scrollbar {
 
 ::-webkit-scrollbar-thumb {
     background-color: #808080;
+}
+
+.imagens-fileira img {
+    transition: transform 0.3s ease;
+}
+
+.imagens-fileira img.hover-effect {
+    transform: scale(1.1);
+}
+
+
+
+
+.imagemReceita{
+    transition: transform 0.3 ease;
+}
+
+.imagemReceita.hover-effect{
+    transform: scale(1.1);
+}
+
+.receita.img{transition: transform 0.3 ease;}
+
+
+.login{
+    align-items: center;
+    justify-content: center;
+    background-color: #252525;
+    padding: 60px;
+    text-align: center;
+}
+
+.enviar{
+    padding: 16px;
+    font-size: larger;
+}
+
+.cad{
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+.datanasc{
+    height: 26px;
+    width: 245px;
+}
+
+
+#login{
+    width: 245;
+    height: 26px;
+    font-size: larger;
+    margin-right: 46px;
+}
+
+#senha{
+    width: 245;
+    height: 26px;
+    font-size: larger;
+    margin-right: 37px;
 }
