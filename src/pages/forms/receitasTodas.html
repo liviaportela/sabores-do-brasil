@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsividade.css">
+    <link rel="shortcut icon" href="../../img/Sabores-do-Brasil-Logo.png" type="image/x-icon">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <header>
+        <div class="menu">
+            <a href="../../../index.html" id="logo"><img src="../../img/talheres-cruzam-garfo-e-colher.png" alt="Logo" style="height:inherit"></a>
+            <h1>SABORES DO BRASIL</h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="./src/pages/perfil.html">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../categorias/massas.html">MASSAS</a></li>
+            <li><a href="../categorias/doces.html">DOCES</a></li>
+            <li><a href="../categorias/comidas-tipicas.html">COMIDAS TÍPICAS</a></li>
+            <li><a href="../categorias/salgados.html">SALGADOS</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="conteudo">
+            <h1 class="titulo">TODAS AS RECEITAS</h1>
+            <div id="receitas-container"></div> <!-- Contêiner para exibir as receitas -->
+        </div>
+    </main>
+
+    <footer>
+        <div id="logo-footer">
+            <img src="../../img/Sabores-do-Brasil-Logo.png" alt="Logo" id="logo">
+            <h1>SABORES DO BRASIL</h1>
+        </div>
+        <a href="../sobre.html" class="link">Sobre nós</a>
+        <p>©2024 Sabores do Brasil. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/receitas/dados')
+                .then(response => response.json())
+                .then(receitas => {
+                    const container = document.getElementById('receitas-container');
+                    receitas.forEach(receita => {
+                        const receitaDiv = document.createElement('div');
+                        receitaDiv.classList.add('receita-item');
+                        receitaDiv.innerHTML = `
+                            <h2>${receita.nome}</h2>
+                            <p>${receita.descricao}</p>
+                        `;
+                        container.appendChild(receitaDiv);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar receitas:', error));
+        });
+    </script>
+</body>
+</html>

@@ -4,6 +4,7 @@ const path = require('path');
 
 const loginRoutes = require('./api/routes/loginRoutes.js');
 const usuariosRoutes = require('./api/routes/usuariosRoutes.js');
+const receitaRoutes = require('./api/routes/receitaRoutes.js');
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -17,6 +18,7 @@ const port = 3000;
  
 app.use("/", loginRoutes);
 app.use('/usuarios', usuariosRoutes);
+app.use('/receitas', receitaRoutes);
 app.use('/src', express.static(path.join(__dirname, 'src')));
 
 app.listen(port, () => {

@@ -486,3 +486,13 @@ body::-webkit-scrollbar {
     border-radius: 6px;
 }
 
+
+.ingredientes{
+    height: 120px;
+}
+
+
+.descricao{
+    width: 300px;
+    font-size: large;
+}
