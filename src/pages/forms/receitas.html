@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsividade.css">
+    <link rel="stylesheet" href="../../css/forms.css">
+    <link rel="shortcut icon" href="../../img/Sabores-do-Brasil-Logo.png" type="image/x-icon">
+    <title>Cadastro de Receita</title>
+</head>
+
+<body>
+    <header>
+        <div class="menu">
+            <a href="/" id="logo">
+                <img src="../../img/talheres-cruzam-garfo-e-colher.png" alt="Logo" style="height:inherit">
+            </a>
+            <h1>SABORES DO BRASIL</h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="../perfil.html">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../categorias/massas.html">MASSAS</a></li>
+            <li><a href="../categorias/doces.html">DOCES</a></li>
+            <li><a href="../categorias/comidas-tipicas.html">COMIDAS TÍPICAS</a></li>
+            <li><a href="../categorias/salgados.html">SALGADOS</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1 class="titulo">Cadastro de Receita</h1>
+
+        <ul class="breadcrumbs" id="breadcrumbs">
+            <li><a href="../perfil.html">Perfil</a></li>
+            <li>Cadastro de receitas</li>
+        </ul>
+
+        <div class="conteudo">
+            <form action="/receitas" method="POST" enctype="multipart/form-data">
+                <div class="campo">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+                <div class="campo">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="" disabled selected></option>
+                        <option value="Massas">Massas</option>
+                        <option value="Doces">Doces</option>
+                        <option value="Comidas Típicas">Comidas Típicas</option>
+                        <option value="Salgados">Salgados</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="subcategoria">Subcategoria</label>
+                    <select id="subcategoria" name="subcategoria" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="ingredientes">Ingredientes</label>
+                    <textarea id="ingredientes" name="ingredientes" required></textarea>
+                </div>
+                <div class="campo">
+                    <label for="preparo">Modo de Preparo</label>
+                    <textarea id="preparo" name="preparo" required></textarea>
+                </div>
+                <div class="campo">
+                    <label>Imagem</label>
+                    <label for="imagem" class="upload-container">
+                        <i class="fa fa-upload"></i>
+                        <input type="file" id="imagem" name="imagem" required>
+                    </label>
+                </div>
+                <input type="hidden" id="usuario_id" name="usuario_id">
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div id="logo-footer">
+            <img src="../../img/Sabores-do-Brasil-Logo.png" alt="Logo" id="logo">
+            <h1>SABORES DO BRASIL</h1>
+        </div>
+        <a href="../sobre.html" class="link">Sobre nós</a>
+        <p>©2024 Sabores do Brasil. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const categoriaSubcategorias = {
+            'Massas': ['Macarrão', 'Pizza'],
+            'Comidas Típicas': ['Salgados', 'Doces'],
+            'Doces': ['Brigadeiros', 'Sorvetes'],
+            'Salgados': ['Fritos', 'Assados']
+        };
+
+        const categoriaSelect = document.getElementById('categoria');
+        const subcategoriaSelect = document.getElementById('subcategoria');
+
+        function updateSubcategorias() {
+            subcategoriaSelect.innerHTML = '<option value="" disabled selected></option>';
+
+            const categoriaSelecionada = categoriaSelect.value;
+
+            if (categoriaSelecionada && categoriaSubcategorias[categoriaSelecionada]) {
+                categoriaSubcategorias[categoriaSelecionada].forEach(subcategoria => {
+                    const option = document.createElement('option');
+                    option.value = subcategoria;
+                    option.textContent = subcategoria;
+                    subcategoriaSelect.appendChild(option);
+                });
+            }
+        }
+        categoriaSelect.addEventListener('change', updateSubcategorias);
+    </script>
+
+</body>
+
+</html>

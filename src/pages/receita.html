@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsividade.css">
+    <link rel="shortcut icon" href="../img/Sabores-do-Brasil-Logo.png" type="image/x-icon">
+    <title>Receita</title>
+</head>
+
+<body>
+    <header>
+        <div class="menu">
+            <a href="/" id="logo"><img src="../img/talheres-cruzam-garfo-e-colher.png" alt="Logo"
+                    style="height:inherit"></a>
+            <h1>SABORES DO BRASIL</h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="./perfil.html">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../pages/categorias/massas.html">MASSAS</a></li>
+            <li><a href="../pages/categorias/doces.html">DOCES</a></li>
+            <li><a href="../pages/categorias/comidas-tipicas.html">COMIDAS TÍPICAS</a></li>
+            <li><a href="../pages/categorias/salgados.html">SALGADOS</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1 class="titulo" id="titulo"></h1>
+
+        <div class="conteudo">
+            <ul class="breadcrumbs" id="breadcrumbs">
+                <li><a href="/">Home</a></li>
+                <li id="titulo"></li>
+            </ul>
+
+            <h2>Categoria</h2>
+            <div class="imagem-receita">
+                <img id="imagem" src="https://via.placeholder.com/150" alt="Imagem da receita">
+            </div>
+
+            <div class="conteudo">
+                <p style="margin-top: 25px;">Escrito por <b>Usuário</b></p>
+
+                <h2>Ingredientes</h2>
+                <div id="ingredientes" class="ingredientes"></div>
+
+                <h2>Modo de Preparo</h2>
+                <p id="preparo"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="logo-footer">
+            <h1>SABORES DO BRASIL</h1>
+        </div>
+        <a href="./sobre.html" class="link">Sobre nós</a>
+        <p>©2024 Sabores do Brasil. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const receitaId = localStorage.getItem('receitaId');
+
+            if (!receitaId) {
+                alert('Erro: Nenhuma receita foi selecionada.');
+                window.location.href = '/';
+                return;
+            }
+
+            fetch(`/receitas/${receitaId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao buscar receita.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const receita = data[0];
+                    if (!receita) {
+                        throw new Error('Receita não encontrada.');
+                    }
+
+                    const titulo = receita.titulo || 'Título não encontrado';
+                    const categoria = receita.categoria || 'Categoria não especificada';
+                    const ingredientes = receita.ingredientes || 'Não informado';
+                    const preparo = receita.preparo || 'Não informado';
+                    const imagem = receita.imagem ? '/uploads/' + receita.imagem : 'https://via.placeholder.com/150';
+                    const usuarioId = receita.usuario_id;
+
+                    return fetch(`/usuarios/${usuarioId}`)
+                        .then(usuarioResponse => {
+                            if (!usuarioResponse.ok) {
+                                throw new Error('Erro ao buscar informações do usuário.');
+                            }
+                            return usuarioResponse.json();
+                        })
+                        .then(usuario => {
+                            const usuarioNome = Array.isArray(usuario) ? usuario[0]?.nome : usuario.nome || 'Usuário desconhecido';
+
+                            const conteudoElement = document.querySelector('.conteudo');
+                            const tituloElement = document.querySelector('.titulo');
+                            tituloElement.textContent = titulo;
+
+                            conteudoElement.innerHTML = `
+                        <ul class="breadcrumbs">
+                            <li><a href="/">Home</a></li>
+                            <li>${titulo}</li> <!-- Já preenche aqui também -->
+                        </ul>
+
+                        <h2>${categoria}</h2>
+                        <div class="imagem-receita">
+                            <img src="${imagem}" alt="${titulo}" class="imagem-detalhes">
+                        </div>
+
+                        <p style="margin-top: 25px;">Escrito por <b>${usuarioNome}</b></p>
+
+                        <h2>Ingredientes</h2>
+                        <div>${ingredientes}</div>
+
+                        <h2>Modo de Preparo</h2>
+                        <p>${preparo}</p>
+                    `;
+                        })
+                        .catch(error => {
+                            console.error('Erro ao carregar informações do usuário:', error);
+                            document.body.innerHTML = '<p>Erro ao carregar a receita. Por favor, tente novamente mais tarde.</p>';
+                        });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar receita:', error);
+                    document.body.innerHTML = '<p>Erro ao carregar a receita. Por favor, tente novamente mais tarde.</p>';
+                });
+        });
+    </script>
+</body>
+
+</html>

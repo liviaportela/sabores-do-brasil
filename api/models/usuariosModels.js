@@ -10,7 +10,6 @@ module.exports = {
     remove,
 }
 
-
 function getAll(callback) {
     conexao.query('Select * from usuarios ', callback)
 }

@@ -35,7 +35,7 @@ function create(req, res) {
         if (err) {
             throw err;
         } else {
-            res.redirect('/usuarios'); // Redireciona para a lista de usuários após o cadastro
+            res.redirect('../src/pages/forms/login.html'); // Redireciona para a lista de usuários após o cadastro
         }
     });
 }
@@ -53,7 +53,7 @@ function update(req, res) {
 }
 
 function remove(req, res) {
-    const cod = req.params.id;
+    const cod = req.session.id_usuario;
     usuariosModels.remove(cod, function (err, resultado) {
         if (err) {
             throw err;

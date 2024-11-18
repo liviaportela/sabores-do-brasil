@@ -14,7 +14,7 @@
 <body>
     <header>
         <div class="menu">
-            <a href="../../../api/views/index.ejs" id="logo"><img src="../../img/talheres-cruzam-garfo-e-colher.png" alt="Logo"
+            <a href="/" id="logo"><img src="../../img/talheres-cruzam-garfo-e-colher.png" alt="Logo"
                     style="height:inherit"></a>
             <h1>SABORES DO BRASIL</h1>
         </div>
@@ -40,7 +40,7 @@
 
     <main>
         <h1 class="titulo">COMIDAS TÍPICAS</h1>
-        
+
         <ul class="breadcrumbs" id="breadcrumbs">
             <li><a href="../../../index.html">Home</a></li>
             <li>Comidas Típicas</li>
@@ -58,29 +58,17 @@
             </div>
         </div>
         <div class="conteudo">
-            <div class="container2">
+            <div class="receitas-container">
                 <h2>Salgados</h2>
 
                 <div class="fileira">
-                    <div class="imagens-fileira">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Salgado 1">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Salgado 2">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Salgado 3">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Salgado 4">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Salgado 5">
-                    </div>
+                    <div id="comidas-típicas-salgadas" class="imagens-fileira"></div>
                 </div>
 
                 <h2>Doces</h2>
 
                 <div class="fileira">
-                    <div class="imagens-fileira">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Doce 1">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Doce 2">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Doce 3">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Doce 4">
-                        <img src="https://geofund.com.br/wp-content/uploads/2023/09/placeholder-10.png" alt="Doce 5">
-                    </div>
+                    <div id="comidas-típicas-doces" class="imagens-fileira"></div>
                 </div>
             </div>
         </div>
@@ -96,6 +84,53 @@
     </footer>
 
     <script src="../../js/carrosselcomidastipicas.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categorias = [
+                { categoria: 'Comidas Típicas', subcategoria: 'Salgados' },
+                { categoria: 'Comidas Típicas', subcategoria: 'Doces' }
+            ];
+
+            categorias.forEach(({ categoria, subcategoria }) => {
+                fetch(`/receitas?categoria=${categoria}&subcategoria=${subcategoria}`)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Erro ao carregar receitas.');
+                        return response.json();
+                    })
+                    .then(receitas => {
+                        const containerId = `${categoria}-${subcategoria}`.toLowerCase().replace(/\s/g, '-');
+                        const imagensContainer = document.getElementById(containerId);
+
+                        if (!imagensContainer) {
+                            console.error(`Elemento com ID "${containerId}" não encontrado.`);
+                            return;
+                        }
+
+                        imagensContainer.innerHTML = '';
+
+                        receitas.forEach(receita => {
+                            const receitaLink = document.createElement('a');
+                            receitaLink.href = `../receita.html`;
+                            receitaLink.classList.add('link-receita');
+
+                            const img = document.createElement('img');
+                            img.src = receita.imagem ? `/uploads/${receita.imagem}` : 'https://via.placeholder.com/150';
+                            img.alt = receita.titulo || 'Imagem da receita';
+                            img.classList.add('imagem-receita');
+                            img.setAttribute('onclick', `saveReceitaId(${receita.id})`);
+
+                            receitaLink.appendChild(img);
+                            imagensContainer.appendChild(receitaLink);
+                        });
+                    })
+                    .catch(error => console.error('Erro ao carregar imagens:', error));
+            });
+        });
+
+        function saveReceitaId(id) {
+            localStorage.setItem('receitaId', id);
+        }
+    </script>
 </body>
 
 </html>

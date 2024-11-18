@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.5.2/css/all.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/responsividade.css">
+    <link rel="stylesheet" href="../../css/forms.css">
     <link rel="shortcut icon" href="../../img/Sabores-do-Brasil-Logo.png" type="image/x-icon">
     <title>Cadastro</title>
 </head>
@@ -14,8 +15,9 @@
 <body>
     <header>
         <div class="menu">
-            <a href="../../../index.html" id="logo"><img src="../../img/talheres-cruzam-garfo-e-colher.png" alt="Logo"
-                    style="height:inherit"></a>
+            <a href="/" id="logo"><img src="../../img/talheres-cruzam-garfo-e-colher.png" alt="Logo"
+                    style="height:inherit">
+            </a>
             <h1>SABORES DO BRASIL</h1>
         </div>
         <div class="links">
@@ -39,22 +41,31 @@
     </nav>
 
     <main>
+        <h1 class="titulo">CADASTRO</h1>
+
+        <ul class="breadcrumbs" id="breadcrumbs">
+            <li><a href="../forms/login.html">Login</a></li>
+            <li>Cadastro</li>
+        </ul>
+
         <div class="conteudo">
-            <h1 class="titulo">CADASTRO</h1>
-            <!-- Formulário de cadastro -->
-            <form action="/usuarios" method="POST" class="login">
-                <input type="text" name="usu_apelido" placeholder="Nome" style="font-size: larger;" required>
-                <br><br>
-                <input type="date" name="data_nasc" placeholder="Data Nasc" style="font-size: larger;" class="datanasc">
-                <br><br>
-                <input type="password" name="usu_password" placeholder="Senha" style="font-size: larger;" required>
-                <br><br><br>
+            <form action="/usuarios" method="POST">
+                <div class="campo">
+                    <label for="email">E-mail*</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="campo">
+                    <label for="nome">Nome*</label>
+                    <input type="text" name="nome" required>
+                </div>
+                <div class="campo">
+                    <label for="senha">Senha*</label>
+                    <input type="password" name="senha" required>
+                </div>
                 <button type="submit" class="enviar">Cadastrar</button>
             </form>
         </div>
     </main>
-
-    <script src="cadastro.js"></script>
 
     <footer>
         <div id="logo-footer">

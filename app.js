@@ -1,4 +1,6 @@
 const express = require('express');
+const session = require('express-session');
+const fileupload = require('express-fileupload');
 const app = express();
 const path = require('path');
 
@@ -7,9 +9,20 @@ const usuariosRoutes = require('./api/routes/usuariosRoutes.js');
 const receitaRoutes = require('./api/routes/receitaRoutes.js');
 
 app.use(express.json());
+app.use(fileupload());
 app.use(express.static('public'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.set('views', './api/views')
 app.use(express.urlencoded({extended: true}))
+
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET || 'fallback_secret',
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false }
+    })
+);
 
 app.set('view engine', 'ejs');
 app.set("views",'./api/views')

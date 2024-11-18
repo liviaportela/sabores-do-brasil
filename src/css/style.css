@@ -5,6 +5,7 @@
     --verde-nav: #317039;
     --cinza-escuro: #252525;
     --branco: #ffffff;
+    --cinza: #a7a7a7;
 }
 
 * {
@@ -248,7 +249,8 @@ label {
     text-align: center;
 }
 
-h1, h2 {
+h1,
+h2 {
     color: var(--cinza-escuro);
     text-align: center;
     text-transform: uppercase;
@@ -257,8 +259,9 @@ h1, h2 {
 .imagem-receita {
     display: flex;
     justify-content: center;
-    margin: 25px;
+    /* margin: 25px; */
     height: 35vh;
+    width: auto;
     overflow: hidden;
 }
 
@@ -283,20 +286,19 @@ h1, h2 {
 }
 
 .receita {
-    display: flex; 
+    display: flex;
     overflow: hidden;
-    height: 200px;
+    height: 230px;
     width: 400px;
     border-radius: 20px;
-    position: relative; 
+    position: relative;
     align-items: center;
     transition: transform 0.3 ease;
 }
 
-.receita.hover-effect{
+.receita.hover-effect {
     transform: scale(1.1);
 }
-
 
 .imagemReceita {
     height: 100%;
@@ -364,16 +366,19 @@ h1, h2 {
 }
 
 .informacoes-conta {
-    margin-left: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 60px 40px;
 }
 
 .receitas {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin: 0px 35px; */
+    margin: 0px 35px;
     padding: 15px 20px;
-    /* width: 100%; */
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -387,7 +392,7 @@ h1, h2 {
     font-size: 32px;
 }
 
-.container2 {
+.receitas-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -404,6 +409,12 @@ h1, h2 {
     gap: 5px;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* FAZER A PARTE RESPONSIVA DISSO DAQUI E DO HEADER*/
@@ -432,8 +443,45 @@ footer {
     gap: 10px;
 }
 
-footer h1, .link {
+footer h1,
+.link {
     color: var(--branco);
+}
+
+.imagens-fileira img {
+    transition: transform 0.3s ease;
+    width: 350px;
+    height: 220px;
+}
+
+.imagens-fileira img.hover-effect {
+    transform: scale(1.1);
+}
+
+.imagemReceita {
+    transition: transform 0.3 ease;
+}
+
+.imagemReceita.hover-effect {
+    transform: scale(1.1);
+}
+
+.receita.img {
+    transition: transform 0.3 ease;
+}
+
+button {
+    color: var(--branco);
+    background-color: var(--verde-nav);
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    width: 220px;
+    height: 40px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-family: 'Poppins';
+    cursor: pointer;
 }
 
 /* Scrollbar */
@@ -444,66 +492,4 @@ body::-webkit-scrollbar {
 
 ::-webkit-scrollbar-thumb {
     background-color: #808080;
-}
-
-.imagens-fileira img {
-    transition: transform 0.3s ease;
-}
-
-.imagens-fileira img.hover-effect {
-    transform: scale(1.1);
-}
-
-
-
-
-.imagemReceita{
-    transition: transform 0.3 ease;
-}
-
-.imagemReceita.hover-effect{
-    transform: scale(1.1);
-}
-
-.receita.img{transition: transform 0.3 ease;}
-
-
-.login{
-    align-items: center;
-    justify-content: center;
-    background-color: #252525;
-    padding: 60px;
-    text-align: center;
-}
-
-.enviar{
-    padding: 16px;
-    font-size: larger;
-}
-
-.cad{
-    color: white;
-    border-radius: 6px;
-    text-align: center;
-}
-
-
-.datanasc{
-    height: 26px;
-    width: 245px;
-}
-
-
-#login{
-    width: 245;
-    height: 26px;
-    font-size: larger;
-    margin-right: 46px;
-}
-
-#senha{
-    width: 245;
-    height: 26px;
-    font-size: larger;
-    margin-right: 37px;
 }

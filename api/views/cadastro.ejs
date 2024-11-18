@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
 </head>
+
 <body>
     <h1>Cadastro de Usuário</h1>
     <form action="/usuarios" method="POST">
-        <label for="usu_apelido">Apelido:</label>
-        <input type="text" id="usu_apelido" name="usu_apelido" required><br><br>
-
-        <label for="usu_password">Senha:</label>
-        <input type="password" id="usu_password" name="usu_password" required><br><br>
-
-        <label for="data_nasc">Data de Nascimento:</label>
-        <input type="date" id="data_nasc" name="data_nasc"><br><br>
-
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
         <button type="submit">Cadastrar</button>
     </form>
 </body>
+
 </html>
