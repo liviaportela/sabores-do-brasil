@@ -10,6 +10,18 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             const usuarioId = data.id;
 
+            const userSection = document.querySelector('.informacoes-conta');
+            userSection.innerHTML = `
+                <div class="vertical">
+                    <p>Nome: ${data.nome}</p>
+                    <p>E-mail: ${data.email}</p>
+                </div>
+                <div class="vertical">
+                    <button id="atualizar" onclick="location.href='forms/esqueceuasenha.html'">Atualizar</button>
+                    <button id="excluir">Excluir</button>
+                </div>
+            `;
+
             fetch(`/receitas/receitas-usuario/${usuarioId}`)
                 .then(response => response.json())
                 .then(receitas => {
@@ -37,18 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     receitasContainer.innerHTML = '<p>Erro ao carregar receitas.</p>';
                 });
 
-            const userSection = document.querySelector('.informacoes-conta');
-            userSection.innerHTML = `
-                <div class="vertical">
-                    <p>Nome: ${data.nome}</p>
-                    <p>E-mail: ${data.email}</p>
-                </div>
-                <div class="vertical">
-                    <button id="atualizar">Atualizar</button>
-                    <button id="excluir">Excluir</button>
-                </div>
-            `;
-
             const deletarUsuarioBtn = document.getElementById('excluir');
             deletarUsuarioBtn.addEventListener('click', function () {
                 if (confirm('Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.')) {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         .then(response => {
                             if (response.ok) {
                                 alert('Conta excluída com sucesso.');
-                                window.location.href = '/';  // Redireciona para a página inicial
+                                window.location.href = '/';
                             } else {
                                 throw new Error('Erro ao deletar o usuário');
                             }
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => {
             console.log(error);
-            window.location.href = 'forms/login.html';  
+            window.location.href = 'forms/login.html';
         });
 });
 

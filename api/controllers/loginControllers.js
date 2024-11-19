@@ -8,29 +8,27 @@ module.exports = {
 }
 
 function login(req, res) {
-    console.log('Carregando Página de Login');
-    res.sendFile(path.join(__dirname, '../views/index.html')); // Ajuste o caminho conforme necessário
+    console.log('Carregando Página Inicial');
+    res.sendFile(path.join(__dirname, '../views/index.html'));
 }
 
 function validarPSW(req, res) {
     console.log("\nController Validar Login...")
     n_usuario = req.body.login;
     n_senha = req.body.senha;
-    console.log("Usuario: " + n_usuario)
-    console.log("Senha: " + n_senha)
 
     loginModels.validarPSW(n_usuario, n_senha, function (erro, result) {
         if (erro) {
-            throw erro
+            return res.status(500).send('Erro ao verificar usuário');
         }
-        if ((result[0].email == n_usuario) && (result[0].senha == n_senha)) {
-            console.log("Dados Válidos!");
+        if (!result || result.length === 0) {
+            return res.status(404).send('Usuário não encontrado');
+        }
 
+        if ((result[0].email == n_usuario) && (result[0].senha == n_senha)) {
             req.session.usuario = result[0].email;
             req.session.nome = result[0].nome;
             req.session.id_usuario = result[0].id;
-
-            console.log("Sessão criada para o usuário:", req.session.usuario);
 
             res.sendFile(path.join(__dirname, '../views/index.html'));
         } else {
@@ -39,6 +37,7 @@ function validarPSW(req, res) {
                 title: "Login",
                 mensagem: "Dados Inválidos"
             })
+            return res.status(401).send('Senha incorreta');
         }
     })
 }
@@ -51,6 +50,6 @@ function obterUsuario(req, res) {
             id: req.session.id_usuario
         });
     } else {
-        res.status(401).json({ error: 'Usuário não autenticado' });
+        return res.status(401).send('Usuário não autenticado');
     }
 }

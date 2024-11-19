@@ -11,7 +11,7 @@ function logar() {
     
     if (usuarioCadastrado && usuarioCadastrado.nome === nome && usuarioCadastrado.senha === senha) {
         alert("Login realizado com sucesso!");
-        window.location.href = "../../../index.html"; 
+        window.location.href = "/"; 
     } else {
         alert("Nome ou senha incorretos. Tente novamente.");
     }

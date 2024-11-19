@@ -115,7 +115,8 @@ function create(req, res) {
             if (err) {
                 throw err;
             } else {
-                res.redirect('/'); // Redireciona para a lista de receitas após o cadastro
+                alert("Receita cadastrada com sucesso!")
+                res.redirect('/');
             }
         });
     });

@@ -12,7 +12,7 @@ router.get('/cadastro', (req, res) => {
 router.get('/', controllerusers.getAll);
 router.get('/:id', controllerusers.getById);
 router.post('/', controllerusers.create);
-router.put('/:id', controllerusers.update);
+router.put('/alterar-senha', controllerusers.updatePasswordByEmail);
 router.delete('/:id', controllerusers.remove);
 
 module.exports = router

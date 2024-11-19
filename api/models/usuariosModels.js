@@ -6,8 +6,8 @@ module.exports = {
     getAll,
     getById,
     create,
-    update,
-    remove,
+    updatePassword,
+    remove
 }
 
 function getAll(callback) {
@@ -23,17 +23,15 @@ function create(dados, callback) {
     conexao.query(msql, dados, callback)
 }
 
-function update(dados, codigo, callback) {
-    var msql = `UPDATE usuarios SET ? WHERE id = ${codigo}`
-    console.log(msql)
-    conexao.query(msql, dados, (erro, callback) => {
-        if(erro) {
-            throw erro
+function updatePassword(senha, email, callback) {
+    const query = 'UPDATE usuarios SET senha = ? WHERE email = ?'; 
+    conexao.query(query, [senha, email], (erro, resultado) => {
+        if (erro) {
+            console.error('Erro na query de atualização de senha:', erro);
+            return callback(erro, null);
         }
-        else{
-            console.log('Registro ' + codigo + ' Atualizado!')
-        }
-    })
+        callback(null, resultado);
+    });
 }
 
 function remove(codigo, callback) {

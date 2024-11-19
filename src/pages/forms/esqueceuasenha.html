@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/responsividade.css">
     <link rel="stylesheet" href="../../css/forms.css">
     <link rel="shortcut icon" href="../../img/Sabores-do-Brasil-Logo.png" type="image/x-icon">
-    <title>Login</title>
+    <title>Esqueci minha senha</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
         <div class="links">
             <ul>
                 <li>
-                    <a href="./perfil.html">
+                    <a href="../perfil.html">
                         <i class="fa-solid fa-user"></i>
                     </a>
                 </li>
@@ -41,30 +41,30 @@
     </nav>
 
     <main>
-        <h1 class="titulo">LOGIN</h1>
+        <h1 class="titulo">Esqueci minha senha</h1>
 
         <ul class="breadcrumbs" id="breadcrumbs">
-            <li><a href="../../pages/perfil.html">Perfil</a></li>
-            <li>Login</li>
+            <li><a href="./login.html">Login</a></li>
+            <li>Esqueci minha senha</li>
         </ul>
 
         <div class="conteudo">
-            <form action="/validar" method="POST">
+            <form id="formAlterarSenha">
                 <div class="campo">
-                    <label for="login">E-mail*</label>
-                    <input type="text" name="login" id="login" required>
+                    <label for="email">E-mail*</label>
+                    <input type="email" name="email" id="email" autocomplete="email" required>
                 </div>
                 <div class="campo">
-                    <label for="senha">Senha*</label>
+                    <label for="senha">Nova senha*</label>
                     <input type="password" name="senha" id="senha" required>
                 </div>
-                <a href="./esqueceuasenha.html">Esqueci minha senha</a>
-                <button type="submit">ENTRAR</button>
+                <div class="campo">
+                    <label for="confirma_senha">Confirmar senha*</label>
+                    <input type="password" name="confirma_senha" id="confirma_senha" required>
+                </div>
+                <button type="submit">Salvar</button>
             </form>
-
-            <h2>Não possui cadastro?</h2>
-            <button onclick="location.href='cadastro.html'">Cadastre-se</button>
-        </div>
+        </div>        
     </main>
 
     <footer>
@@ -76,7 +76,7 @@
         <p>©2024 Sabores do Brasil. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="../../js/login.js"></script>
+    <script src="../../js/esqueciminhasenha.js"></script>
 </body>
 
 </html>
