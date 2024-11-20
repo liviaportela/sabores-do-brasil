@@ -52,19 +52,7 @@
 
 <h1>Um Pouco Sobre Nós</h1>
 
-![image](https://github.com/Law751/Site-P.I-1--Semestre/assets/147450456/629ec848-7e43-4a36-b0d1-bcd0b1220353)
+![image](https://github.com/user-attachments/assets/8b7c102e-b293-4e2d-8bdb-38818c8c35c5)
 
-![image](https://github.com/Law751/Site-P.I-1--Semestre/assets/147450456/ab6fa760-c8ec-480f-ada5-b7b2e0546dc6)
-
-<h1>Criadores</h1>
-
-![image](https://github.com/Law751/Site-P.I-1--Semestre/assets/147450456/094644b0-9226-4a4b-b577-eeec302ac992)
-
-<h1>Contatos</h1>
-
-![image](https://github.com/Law751/Site-P.I-1--Semestre/assets/147450456/11b8d718-8072-4d40-a81b-302a2fd0aeae)
-
-<h1>⚔️Link do Site⚔️
-
- https://torii-store.netlify.app 
-</h1>
+<h1>Apresentação do Site 📽️</h1>
+<p>https://youtu.be/m_TRtkw5s8U</p>
