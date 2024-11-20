@@ -115,7 +115,6 @@ function create(req, res) {
             if (err) {
                 throw err;
             } else {
-                alert("Receita cadastrada com sucesso!")
                 res.redirect('/');
             }
         });
