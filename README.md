@@ -54,5 +54,11 @@
 
 ![image](https://github.com/user-attachments/assets/8b7c102e-b293-4e2d-8bdb-38818c8c35c5)
 
+<h1>Documentação do Projeto </h1>
+<h2>Em Word</h2>
+[sabores-do-brasil.docx](https://github.com/user-attachments/files/17837105/sabores-do-brasil.docx)
+<h2>Em PDF</h2>
+[sabores-do-brasil.pdf](https://github.com/user-attachments/files/17837114/sabores-do-brasil.pdf)
+
 <h1>Apresentação do Site 📽️</h1>
 <p>https://youtu.be/m_TRtkw5s8U</p>
