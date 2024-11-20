@@ -260,7 +260,6 @@ h2 {
 .imagem-receita {
     display: flex;
     justify-content: center;
-    /* margin: 25px; */
     height: 35vh;
     width: auto;
     overflow: hidden;
@@ -418,7 +417,6 @@ h2 {
     gap: 10px;
 }
 
-/* FAZER A PARTE RESPONSIVA DISSO DAQUI E DO HEADER*/
 .imagens-fileira img {
     width: 300px;
     height: auto;
